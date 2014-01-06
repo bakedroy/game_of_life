@@ -1,2 +1,2 @@
-#1/bin/sh
+#!/bin/sh
 ocamlbuild -libs unix life.native
