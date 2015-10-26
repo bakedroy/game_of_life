@@ -64,10 +64,9 @@ let game width height =
 		ignore (Unix.select [] [] [] sec)
 	in
         let rec periodical_print_matrix count =
-                ignore (Sys.command "clear");
+		ANSITerminal.erase Screen;
                 print_matrix canvas;
                 (* print_separator width; *)
-                (* Thread.delay 0.1; *)
                 change_generation canvas height width tmp_mtrx;
                 print_endline (string_of_int count);
 		usleep 0.1;

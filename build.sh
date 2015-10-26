@@ -1,2 +1,2 @@
 #!/bin/sh
-ocamlbuild -libs unix life.native
+ocamlbuild -pkg ANSITerminal life.native
