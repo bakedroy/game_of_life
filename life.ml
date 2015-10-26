@@ -60,6 +60,9 @@ let game width height =
                 in
                 _sub_init_canvas 0 max
         in
+	let usleep sec = 
+		ignore (Unix.select [] [] [] sec)
+	in
         let rec periodical_print_matrix count =
                 ignore (Sys.command "clear");
                 print_matrix canvas;
@@ -67,7 +70,7 @@ let game width height =
                 (* Thread.delay 0.1; *)
                 change_generation canvas height width tmp_mtrx;
                 print_endline (string_of_int count);
-                Unix.sleep 1;
+		usleep 0.1;
                 periodical_print_matrix (count+1)
         in
         Random.init (int_of_float (Unix.time ()));
